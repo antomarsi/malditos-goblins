@@ -24,11 +24,6 @@
     "test": "jest --config jestconfig.json"
   },
   "peerDependencies": {},
-  "husky": {
-    "hooks": {
-      "pre-commit": "tslint -p tsconfig.json"
-    }
-  },
   "prettier": {
     "printWidth": 80,
     "semi": true,
@@ -41,6 +36,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/antomarsi/malditos-goblins"
+  },
+  "commitlint": {
+    "extends": ["@commitlint/config-conventional"]
   },
   "homepage": "https://github.com/antomarsi/malditos-goblins#readme",
   "module": "dist/malditos-goblins-lib.esm.js",
@@ -61,6 +59,8 @@
     "typescript"
   ],
   "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
     "@size-limit/preset-small-lib": "^5.0.1",
     "@types/jest": "^26.0.24",
     "husky": "^7.0.1",
