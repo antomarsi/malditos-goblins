@@ -1,32 +1,26 @@
 {
   "special_features": [
     {
-      "id": 1,
       "name": "Insano",
       "description": "Você não tem controle de seus atos. Sempre que o mestre quiser, ele pode pedir um teste de Sorte (dificuldade 5). Se você falhar, o mestre poderá decidir um ato idiota para seu personagem fazer."
     },
     {
-      "id": 2,
       "name": "Fedorento",
       "description": "Você fede e ninguém gosta de ficar perto. Qualquer um que fique por mais de 1 minuto perto de você, poderá ficar nauseado e vomitar."
     },
     {
-      "id": 3,
       "name": "Cicatrizes",
       "description": "Você possui muitas cicatrizes de muitas batalhas. As fêmeas goblins nunca olharão para você."
     },
     {
-      "id": 4,
       "name": "Gordo",
       "description": "Você é obeso e tem problemas em passar em buracos estreitos, se esconder e não consegue correr por muito tempo."
     },
     {
-      "id": 5,
       "name": "Fala errado",
       "description": "Você tem algum problema de comunicação (gagueira, língua presa, troca letras, etc) e isso irrita muito os seus companheiros."
     },
     {
-      "id": 6,
       "name": "Anomalia",
       "description": "Você possui uma anomalia genética.",
       "extraDescriptions": [
@@ -44,7 +38,6 @@
   ],
   "colorations": [
     {
-      "id": 1,
       "name": "Verde Claro",
       "color": "#8dd381",
       "combat": 2,
@@ -53,7 +46,6 @@
       "luck": 1
     },
     {
-      "id": 2,
       "name": "Verde",
       "color": "#239311",
       "combat": 2,
@@ -62,7 +54,6 @@
       "luck": 1
     },
     {
-      "id": 3,
       "name": "Verde Escuro",
       "color": "#083201",
       "combat": 2,
@@ -71,7 +62,6 @@
       "luck": 1
     },
     {
-      "id": 4,
       "name": "Amarelo",
       "color": "#f1e902",
       "combat": 1,
@@ -80,7 +70,6 @@
       "luck": 2
     },
     {
-      "id": 5,
       "name": "Vermelho",
       "color": "#c30000",
       "combat": 1,
@@ -89,7 +78,6 @@
       "luck": 1
     },
     {
-      "id": 6,
       "name": "Azul",
       "color": "#0290d2",
       "combat": 1,
@@ -98,18 +86,14 @@
       "luck": 2
     }
   ],
-  "ocupation": [
+  "ocupations": [
     {
       "name": "Mercenário",
       "combat": 1,
       "knowledge": 0,
       "dexterity": 1,
       "luck": 0,
-      "skills": [
-        1,
-        2,
-        3
-      ],
+      "skills": [1, 2, 3],
       "equip_type": "heavy"
     },
     {
@@ -118,11 +102,7 @@
       "knowledge": 0,
       "dexterity": 0,
       "luck": 1,
-      "skills": [
-        4,
-        5,
-        6
-      ],
+      "skills": [4, 5, 6],
       "equip_type": "light"
     },
     {
@@ -131,11 +111,7 @@
       "knowledge": 0,
       "dexterity": 1,
       "luck": 1,
-      "skills": [
-        7,
-        8,
-        9
-      ],
+      "skills": [7, 8, 9],
       "equip_type": "explosive"
     },
     {
@@ -144,11 +120,7 @@
       "knowledge": 1,
       "dexterity": 1,
       "luck": 0,
-      "skills": [
-        10,
-        11,
-        12
-      ],
+      "skills": [10, 11, 12],
       "equip_type": "light"
     },
     {
@@ -157,11 +129,7 @@
       "knowledge": 1,
       "dexterity": 0,
       "luck": 0,
-      "skills": [
-        13,
-        2,
-        3
-      ],
+      "skills": [13, 2, 3],
       "equip_type": "heavy"
     },
     {
@@ -170,11 +138,7 @@
       "knowledge": 1,
       "dexterity": 0,
       "luck": 1,
-      "skills": [
-        14,
-        15,
-        16
-      ],
+      "skills": [14, 15, 16],
       "equip_type": "magic"
     }
   ],
@@ -259,5 +223,36 @@
       "name": "Petrificar",
       "description": "Gastando 6 pontos de magia você pode paralisar qualquer criatura."
     }
-  ]
+  ],
+  "equipments": [
+    { "id": 1, "name": "Adaga", "throwable": true, "damage": 2 },
+    { "id": 2, "name": "Escudo", "protection": 1 },
+    { "id": 3, "name": "Arco Simples", "distance": true, "damage": 2 },
+    { "id": 4, "name": "Arco Composto", "distance": true, "damage": 3 },
+    { "id": 5, "name": "Besta", "distance": true, "damage": 3 },
+    { "id": 6, "name": "Elmo", "protection": 1 },
+    { "id": 7, "name": "Espada", "damage": 3 },
+    { "id": 8, "name": "Escudo", "protection": 1 },
+    { "id": 9, "name": "Machado", "damage": 4 },
+    { "id": 10, "name": "Machadinha", "damage": 3, "throwable": true },
+    { "id": 11, "name": "Espadona", "damage": 5 },
+    { "id": 12, "name": "Armadura", "protection": 1 },
+    { "id": 13, "name": "Pistola", "distance": true, "damage": 4 },
+    {
+      "id": 14,
+      "name": "Galinhas Explosivas",
+      "distance": true,
+      "damage": 4,
+      "area": 3
+    },
+    { "id": 15, "name": "Barril de Pólvora", "damage": 5, "area": 3 },
+    { "id": 16, "name": "Canhão", "damage": 8, "distance": true, "reload": 2 },
+    { "id": 17, "name": "Cajado", "damage": 1, "magic": true }
+  ],
+  "equipment_sets": {
+    "heavy": [[7, 2], [9, 6], [10, 10], [11], [7, 7, 12], [1, 7, 12]],
+    "light": [[1, 1], [1, 2], [3], [4], [1, 1, 1, 1], [5, 6]],
+    "explosive": [[13, 6], [13, 13], [14, 14, 14], [15], [13, 14, 14], [16]],
+    "magic": [[17]]
+  }
 }
