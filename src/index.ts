@@ -8,9 +8,9 @@ function getRandomInt(min: number, max: number): number {
   return Math.random() * (max - min) + min;
 }
 
-type EquipmentType = "heavy" | "light" | "explosive" | "magic"
+type EquipmentType = 'heavy' | 'light' | 'explosive' | 'magic';
 
-module MalditosGoblins {
+namespace MalditosGoblins {
   export interface Coloration {
     name: string;
     color: string;
@@ -90,7 +90,9 @@ module MalditosGoblins {
     const coloration = getRandomColoration();
     const ocupation = getRandomOcupation();
     const specialFeature = getRandomSpecialFeature();
-    const equipments = getRandomEquipments(ocupation.equip_type as EquipmentType);
+    const equipments = getRandomEquipments(
+      ocupation.equip_type as EquipmentType
+    );
 
     const goblin = new Goblin(
       coloration,
@@ -101,10 +103,10 @@ module MalditosGoblins {
     return goblin;
   }
 
-  function getRandomEquipments(equip_type: EquipmentType): Equipment[] {
+  function getRandomEquipments(equipType: EquipmentType): Equipment[] {
     const equipments: Equipment[] = [];
 
-    const equipSet = getRandomInArray(database.equipment_sets[equip_type]);
+    const equipSet = getRandomInArray(database.equipment_sets[equipType]);
 
     equipSet.forEach(equipId => {
       const equipment = database.equipments.find(equip => equip.id === equipId);
@@ -122,8 +124,8 @@ module MalditosGoblins {
     const ocupationObj = getRandomInArray(database.ocupations);
     const skills: Skill[] = [];
     ocupationObj.skills.forEach(skillId => {
-      const skill = database.skills.find(skill => skill.id === skillId);
-      if (!!skill) skills.push(skill);
+      const ocupationSkill = database.skills.find(skill => skill.id === skillId);
+      if (!!ocupationSkill) skills.push(ocupationSkill);
     });
     return {
       ...ocupationObj,
@@ -133,7 +135,7 @@ module MalditosGoblins {
 
   function getRandomSpecialFeature(): SpecialFeature {
     const specialFeature = getRandomInArray(database.special_features);
-    let extraDescriptions: string[] | undefined = undefined;
+    let extraDescriptions: string[] = [];
     if (!!specialFeature.extraDescriptions) {
       extraDescriptions = getExtraDescription(specialFeature.extraDescriptions);
     }
@@ -144,10 +146,8 @@ module MalditosGoblins {
     const result: string[] = [];
     const diceValue = getRandomInt(1, extraDescriptions.length + 2);
     if (diceValue > extraDescriptions.length) {
-      result.concat([
-        ...getExtraDescription(extraDescriptions),
-        ...getExtraDescription(extraDescriptions),
-      ]);
+      result.concat(getExtraDescription(extraDescriptions))
+      result.concat(getExtraDescription(extraDescriptions))
     } else {
       result.push(extraDescriptions[diceValue - 1]);
     }

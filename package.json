@@ -2,7 +2,7 @@
   "version": "0.1.0",
   "license": "MIT",
   "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
     "src"
@@ -11,18 +11,22 @@
     "node": ">=10"
   },
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "test": "jest --config jestconfig.json"
   },
   "peerDependencies": {},
   "husky": {
     "hooks": {
-      "pre-commit": "tsdx lint"
+      "pre-commit": "tslint -p tsconfig.json"
     }
   },
   "prettier": {
@@ -32,6 +36,7 @@
     "trailingComma": "es5"
   },
   "name": "malditos-goblins-lib",
+  "description": "A simple MalditosGoblins's goblins generator library",
   "author": "Antônio Marco da Silva <antomarsi@hotmail.com>",
   "repository": {
     "type": "git",
@@ -49,13 +54,22 @@
       "limit": "10 KB"
     }
   ],
+  "keywords": [
+    "malditos goblins",
+    "rpg",
+    "generator",
+    "typescript"
+  ],
   "devDependencies": {
     "@size-limit/preset-small-lib": "^5.0.1",
+    "@types/jest": "^26.0.24",
     "husky": "^7.0.1",
+    "jest": "^27.0.6",
+    "prettier": "^2.3.2",
     "size-limit": "^5.0.1",
-    "tsdx": "^0.14.1",
-    "tslib": "^2.3.0",
+    "ts-jest": "^27.0.4",
     "tslint": "^6.1.3",
+    "tslint-config-prettier": "^1.18.0",
     "typescript": "^4.3.5"
   }
 }
