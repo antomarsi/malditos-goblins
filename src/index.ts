@@ -54,24 +54,24 @@ namespace MalditosGoblins {
       Object.assign(this, init);
     }
     public toString(): string {
-      let extra_description: string[] = []
+      const extraDescription: string[] = []
       if (this.distance) {
-        extra_description.push("Distância")
+        extraDescription.push("Distância")
       }
       if (!!this.throwable) {
-        extra_description.push(`Arremessável`)
+        extraDescription.push(`Arremessável`)
       }
       if (!!this.protection) {
-        extra_description.push(`Proteção ${this.protection}`)
+        extraDescription.push(`Proteção ${this.protection}`)
       }
       if (!!this.aoe) {
-        extra_description.push(`Dano ${this.damage} em todos até ${this.distance}m`)
+        extraDescription.push(`Dano ${this.damage} em todos até ${this.distance}m`)
       } else if (!!this.damage) {
-        extra_description.push(`Dano ${this.damage}`)
+        extraDescription.push(`Dano ${this.damage}`)
       }
-      if (!!this.charge) extra_description.push(`Carregar [${this.charge} turnos]`)
+      if (!!this.charge) extraDescription.push(`Carregar [${this.charge} turnos]`)
 
-      return this.name + (extra_description.length > 0 ? ` (${extra_description.join("; ")})` : "")
+      return this.name + (extraDescription.length > 0 ? ` (${extraDescription.join("; ")})` : "")
     }
   }
 
@@ -180,8 +180,8 @@ namespace MalditosGoblins {
 
 
   export const generateName = (): string => {
-    let prefix = ["Sp", "Cr", "Bu", "Ut", "An", "Om"];
-    let sufix = ["or", "ut", "ar", "an", "an", "ec"];
+    const prefix = ["Sp", "Cr", "Bu", "Ut", "An", "Om"];
+    const sufix = ["or", "ut", "ar", "an", "an", "ec"];
     return (
       prefix[Math.floor(Math.random() * prefix.length)] +
       sufix[Math.floor(Math.random() * sufix.length)]
