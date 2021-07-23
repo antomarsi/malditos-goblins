@@ -41,14 +41,38 @@ namespace MalditosGoblins {
     description: string;
   }
 
-  export interface Equipment {
-    name: string;
+  export class Equipment {
+    name: string = "";
     distance?: boolean;
-    attack?: number;
-    defense?: number;
-    consumable?: boolean;
+    damage?: number;
+    protection?: number;
+    throwable?: boolean;
     aoe?: number;
     charge?: number;
+
+    public constructor(init?: Partial<Equipment>) {
+      Object.assign(this, init);
+    }
+    public toString(): string {
+      let extra_description: string[] = []
+      if (this.distance) {
+        extra_description.push("Distância")
+      }
+      if (!!this.throwable) {
+        extra_description.push(`Arremessável`)
+      }
+      if (!!this.protection) {
+        extra_description.push(`Proteção ${this.protection}`)
+      }
+      if (!!this.aoe) {
+        extra_description.push(`Dano ${this.damage} em todos até ${this.distance}m`)
+      } else if (!!this.damage) {
+        extra_description.push(`Dano ${this.damage}`)
+      }
+      if (!!this.charge) extra_description.push(`Carregar [${this.charge} turnos]`)
+
+      return this.name + (extra_description.length > 0 ? ` (${extra_description.join("; ")})` : "")
+    }
   }
 
   export class Goblin {
@@ -110,7 +134,7 @@ namespace MalditosGoblins {
 
     equipSet.forEach(equipId => {
       const equipment = database.equipments.find(equip => equip.id === equipId);
-      if (!!equipment) equipments.push(equipment);
+      if (!!equipment) equipments.push(new Equipment(equipment));
     });
 
     return equipments;
@@ -153,6 +177,17 @@ namespace MalditosGoblins {
     }
     return result;
   }
+
+
+  export const generateName = (): string => {
+    let prefix = ["Sp", "Cr", "Bu", "Ut", "An", "Om"];
+    let sufix = ["or", "ut", "ar", "an", "an", "ec"];
+    return (
+      prefix[Math.floor(Math.random() * prefix.length)] +
+      sufix[Math.floor(Math.random() * sufix.length)]
+    );
+  }
+
 }
 
 export default MalditosGoblins;
