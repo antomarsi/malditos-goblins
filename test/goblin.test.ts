@@ -1,8 +1,8 @@
-import MalditosGoblins from '../src/index';
+import { generateGoblin } from '../src/index';
 
 describe('goblin generator', () => {
   it('generate a random goblin', () => {
-    const goblin = MalditosGoblins.generateGoblin();
+    const goblin = generateGoblin();
 
     expect(goblin).not.toBeNull();
     expect(goblin.combat).toBeGreaterThan(0);

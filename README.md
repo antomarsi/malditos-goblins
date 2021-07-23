@@ -2,7 +2,7 @@
 This is a simple lib to generate goblins.
 
 ```typescript
-import MalditosGoblins from '../src/index';
+import { generateGoblin } from '../src/index';
 
-const goblin = MalditosGoblins.generateGoblin();
+const goblin = generateGoblin();
 ```
